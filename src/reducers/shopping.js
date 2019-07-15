@@ -1,7 +1,7 @@
 const initialState = {
   // カテゴリ情報
   // 本来はカテゴリID取得APIで取得すべき
-  categories: [
+  cate: [
     {
       id: '1',
       name: 'すべてのカテゴリ'

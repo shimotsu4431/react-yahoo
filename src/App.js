@@ -9,14 +9,13 @@ class App extends Component {
       <div className="App">
         <Nav />
 
+        {/* SwitchがあるとRouteを1つに限定できる */}
         <Switch>
           <Route path="/all" component={Ranking} />
           <Route
             path="/category/1"
             render={() => <Redirect to="/all" />}
           />
-
-          {/* 各ランキングのルート */}
           <Route 
             path="/category/:id"
             render={
@@ -24,6 +23,7 @@ class App extends Component {
             }
           />
         </Switch>
+
       </div>
     )
   }

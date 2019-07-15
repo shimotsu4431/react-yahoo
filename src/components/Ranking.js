@@ -14,6 +14,7 @@ export default class Ranking extends React.Component {
 
   render(){
     const { category, ranking, error } = this.props
+    let i = 1;
 
     return (
       <div>
@@ -27,7 +28,7 @@ export default class Ranking extends React.Component {
             return (
               <ol>
                 {ranking.map(item => (
-                  <li key={`ranking-item-${item.code}`}>
+                  <li key={`ranking-item-${item.code}`} data-id={i++}>
                     <img alt={item.name} src={item.imageUrl} />
                     <a href={item.url} target=" _blank">{item.name}</a>
                   </li>

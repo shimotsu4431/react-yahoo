@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
   error: state.Ranking.error
 })
 
+// onMount時／onUpdate時それぞれでランキングをフェッチする関数をPropsに渡す
 const mapDispatchToProps = dispatch => ({
   onMount(categoryId) {
     dispatch(actions.fetchRanking(categoryId))
@@ -17,4 +18,5 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
+// これによってRankingコンポーネントに値や関数が渡される
 export default connect(mapStateToProps, mapDispatchToProps)(Ranking)

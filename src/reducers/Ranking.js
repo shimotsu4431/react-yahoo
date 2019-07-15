@@ -24,6 +24,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch(action.type) {
+    
     // リクエスト開始時に状態をリセット
     case 'START_REQUEST':
       return {

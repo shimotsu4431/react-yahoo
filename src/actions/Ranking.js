@@ -26,14 +26,21 @@ const finishRequest = category => ({
 // ランキングを取得する
 export const fetchRanking = categoryId => {
   return async (dispatch, getState) => {
-    const categories = getState().shopping.categories
+
+    // getState()で、jsonを返すshopping.jsの`cate`からカテゴリを取得してる → 変数categoriesに代入
+    const categories = getState().shopping.cate
+
+    // categoriesから、json内のidと、categoryId={match.params.id}と一致するものを探し、categoryに格納
     const category = categories.find(category => (category.id === categoryId))
+    console.log(category)
+    // {id: "10002", name: "本、雑誌、コミック"}
 
     if(typeof category === 'undefined') {
       dispatch(replace('/'))
       return
     }
 
+    // ここでやっとリクエスト開始
     dispatch(startRequest(category))
 
     const queryString = qs.stringify({
